@@ -1,27 +1,49 @@
 name: Build Android APK
+
 on:
   push:
     branches: [main, master]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
+
       - run: npm install
       - run: npx cap add android
       - run: npx cap sync android
+
+      - name: Generate Custom SHAM App Icon & Splash
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          mkdir -p assets
+          convert -size 1024x1024 xc:'#090A0F' \
+            -fill '#141126' -stroke '#00E5FF' -strokewidth 18 \
+            -draw "roundrectangle 45,45 979,979 180,180" \
+            -stroke '#9D4EDD' -strokewidth 8 \
+            -draw "roundrectangle 85,85 939,939 145,145" \
+            -stroke none -fill '#00E5FF' -gravity center \
+            -pointsize 230 -annotate +0-30 'SHAM' \
+            -fill '#FFD166' -pointsize 65 -annotate +0+140 'STORE' \
+            assets/logo.png
+          npx -y @capacitor/assets generate --iconBackgroundColor '#090A0F' --splashBackgroundColor '#090A0F' --android
+
       - working-directory: android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug
+
       - uses: actions/upload-artifact@v4
         with:
           name: sham-store-apk

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>متجر شام | SHAM STORE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080e;--cd:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1);--tx:#eef0f6;--mu:#9aa0b4;--c:#00e5ff;--p:#9d4edd;--g:#ffd166;--w:#25d366;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,sans-serif;line-height:1.7;background-image:radial-gradient(600px 400px at 85% 0,rgba(157,78,221,.28),transparent),radial-gradient(500px 400px at 5% 25%,rgba(0,229,255,.15),transparent);background-repeat:no-repeat}
+.w{max-width:1100px;margin:auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;backdrop-filter:blur(14px);background:rgba(8,8,14,.8);border-bottom:1px solid var(--bd)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:58px}
+.logo{font-weight:800;font-size:19px;background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;padding:12px 24px;border-radius:12px;text-decoration:none;color:#06060b;background:linear-gradient(90deg,var(--c),#5af);box-shadow:0 0 22px rgba(0,229,255,.4);transition:.2s;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(0,229,255,.7)}
+.btn.o{background:transparent;color:var(--tx);border:1px solid var(--p);box-shadow:none}
+.btn.o:hover{background:rgba(157,78,221,.2)}
+.btn.wa{background:var(--w);box-shadow:0 0 22px rgba(37,211,102,.45)}
+.btn.sm{padding:8px 14px;font-size:14px}
+.hero{padding:56px 0 30px;text-align:center}
+h1{font-size:clamp(30px,6vw,54px);line-height:1.3;margin:0 0 14px;font-weight:800}
+h1 span{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mu);max-width:620px;margin:0 auto 20px;font-size:17px}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:22px}
+.badge{padding:6px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--cd);font-size:14px}
+.b1{border-color:var(--c);color:var(--c)}.b2{border-color:var(--w);color:var(--w)}.b3{border-color:var(--g);color:var(--g)}
+.hours{display:inline-block;padding:10px 18px;border-radius:12px;border:1px solid var(--g);color:var(--g);font-weight:700;margin-bottom:22px}
+section{padding:36px 0}
+h2{font-size:27px;margin:0 0 6px}.sub{color:var(--mu);margin:0 0 18px}
+.search{width:100%;font:inherit;color:var(--tx);background:rgba(0,0,0,.4);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+.search:focus,select:focus,input:focus{outline:2px solid var(--c)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:14px}
+.tab{flex:none;font:inherit;font-weight:600;color:var(--mu);background:var(--cd);border:1px solid var(--bd);padding:8px 18px;border-radius:99px;cursor:pointer;transition:.2s}
+.tab.on{color:#06060b;background:linear-gradient(90deg,var(--c),var(--p));border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:18px;backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:8px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 8px 30px rgba(0,229,255,.15)}
+.card h3{margin:0;font-size:17px}.ic{font-size:32px}
+.pr{align-self:flex-start;color:var(--g);background:rgba(255,209,102,.1);border-radius:8px;padding:2px 10px;font-size:13px}
+.sec{align-self:flex-start;color:var(--w);font-size:13px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13px;color:var(--tx);background:rgba(255,255,255,.06);border:1px solid var(--bd);border-radius:99px;padding:3px 11px;cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--p)}
+.chip.on{background:var(--p);border-color:var(--p);box-shadow:0 0 12px rgba(157,78,221,.7)}
+.card .btn{margin-top:auto}
+.empty{color:var(--mu);text-align:center;padding:30px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;counter-reset:s}
+.step{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:20px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--g),#ff9f1c);color:#06060b;font-weight:800;margin-bottom:8px}
+details{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}details[open]{border-color:var(--c)}details p{margin:8px 0 0;color:var(--mu)}
+footer{border-top:1px solid var(--bd);padding:26px 0 40px;text-align:center;color:var(--mu);font-size:14px}
+.fab{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:18px;width:56px;height:56px;border-radius:50%;background:var(--w);display:grid;place-items:center;font-size:28px;text-decoration:none;z-index:6;animation:pl 2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+.md{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}
+.md.on{display:flex}
+.box{width:100%;max-width:440px;max-height:100%;overflow:auto;background:#12121c;border:1px solid var(--p);border-radius:20px;padding:22px;box-shadow:0 0 50px rgba(157,78,221,.35)}
+.box h3{margin:0 0 12px}label{display:block;font-size:14px;color:var(--mu);margin:10px 0 4px}
+select,input{width:100%;font:inherit;color:var(--tx);background:rgba(0,0,0,.45);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.info{background:rgba(255,209,102,.08);border:1px dashed var(--g);border-radius:10px;padding:10px;margin:12px 0;font-size:13px;color:var(--g)}
+.acts{display:flex;gap:8px}.acts .btn{flex:1}
+.er{display:none;background:rgba(255,80,80,.12);border:1px solid #f55;color:#ff9a9a;border-radius:10px;padding:8px 12px;margin-top:10px;font-size:14px}.lnk{background:none;border:0;color:var(--c);font:inherit;cursor:pointer;margin-top:12px;width:100%}.nt{color:var(--mu);font-size:12px;margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="w"><div class="logo">متجر شام | SHAM STORE</div><div style="display:flex;gap:8px;align-items:center"><span id="acct" style="display:flex;gap:8px;align-items:center"></span><a class="btn wa sm" href="https://wa.me/963986883989" target="_blank" rel="noopener">واتساب</a></div></div></header>
+<main>
+<div class="w hero">
+<h1>خدماتك الرقمية <span>بسرعة وأمان</span> وتنفيذ فوري</h1>
+<p>شحن ألعاب، اشتراكات رقمية، وخدمات نمو السوشيال ميديا — موثوقة وآمنة، والدفع عبر شام كاش.</p>
+<div class="row"><span class="badge b1">تنفيذ فوري ⚡</span><span class="badge b2">بدون باسوورد نهائياً 🛡️</span><span class="badge b3">الدفع: شام كاش</span></div>
+<div class="hours">أوقات التنفيذ اليومية: من 3:00 عصراً حتى 10:30 مساءً</div><br>
+<div class="row"><a class="btn wa" href="https://wa.me/963986883989" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a><a class="btn o" href="#services">تصفح الخدمات</a></div>
+</div>
+
+<section id="services"><div class="w">
+<h2>الخدمات والباقات</h2><p class="sub">اختر الباقة من الأزرار الصغيرة ثم اضغط «اطلب الآن».</p>
+<input class="search" id="q" type="search" placeholder="🔍 ابحث عن خدمة... (ببجي، إنستغرام، ChatGPT)">
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section id="how"><div class="w">
+<h2>طريقة الطلب</h2><p class="sub">ثلاث خطوات فقط، والدفع حصرياً عبر شام كاش (Sham Cash).</p>
+<div class="steps">
+<div class="step"><b>اختيار الخدمة</b><br>اختر الخدمة والباقة المطلوبة.</div>
+<div class="step"><b>تأكيد السعر والدفع بشام كاش</b><br>نؤكد لك السعر ورقم الحساب ثم تدفع عبر شام كاش.</div>
+<div class="step"><b>رسالة واحدة على واتساب</b><br>أرسل الطلب مع صورة إيصال الدفع.</div>
+</div>
+</div></section>
+
+<section id="faq"><div class="w">
+<h2>الأسئلة الشائعة</h2>
+<details><summary>هل أحتاج إعطاءكم كلمة المرور؟</summary><p>لا، نهائياً. خدمات السوشيال ميديا بالرابط أو اليوزر فقط، وشحن الألعاب بالـ ID فقط.</p></details>
+<details><summary>كيف أدفع عبر شام كاش؟</summary><p>اطلب تأكيد السعر ورقم حساب شام كاش عبر واتساب، ادفع، ثم أرسل صورة الإيصال في نفس المحادثة.</p></details>
+<details><summary>ما هي أوقات التنفيذ؟</summary><p>يومياً من 3:00 عصراً حتى 10:30 مساءً.</p></details>
+<details><summary>لماذا لا توجد أسعار ثابتة؟</summary><p>الأسعار تتغير حسب التحديث، لذلك نؤكد لك السعر الدقيق عبر واتساب قبل الدفع.</p></details>
+</div></section>
+</main>
+<footer><div class="w">© 2026 متجر شام | SHAM STORE — جميع الحقوق محفوظة — <a style="color:var(--c)" href="https://wa.me/963986883989" target="_blank" rel="noopener" dir="ltr">+963 986 883 989</a></div></footer>
+<a class="fab" href="https://wa.me/963986883989" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<div class="md" id="md"><div class="box">
+<h3>إتمام الطلب ⚡</h3>
+<label>الخدمة</label><input id="mS" readonly>
+<label>الباقة</label><input id="mP" readonly>
+<label id="mL" for="mI"></label><input id="mI" placeholder="اكتب هنا (بدون كلمة مرور)" autocomplete="off">
+<label for="mY">حالة الدفع عبر شام كاش</label>
+<select id="mY"><option>أرغب بتأكيد السعر ورقم حساب شام كاش للدفع</option><option>تم الدفع عبر شام كاش (سأرفق صورة الإيصال الآن)</option></select>
+<div class="info">لا تُدخل كلمة مرور أبداً. تذكّر إرفاق صورة إيصال شام كاش في واتساب. التنفيذ من 3:00 عصراً حتى 10:30 مساءً.</div>
+<div class="acts"><button class="btn wa" id="go">إرسال عبر واتساب</button><button class="btn o" id="cl">إغلاق</button></div>
+</div></div>
+
+<div class="md" id="am"><div class="box">
+<h3 id="aT">تسجيل الدخول</h3>
+<form id="aF">
+<div id="aN"><label for="aName">الاسم</label><input id="aName" maxlength="60"></div>
+<label for="aMail">البريد الإلكتروني</label><input id="aMail" type="email" required autocomplete="email">
+<label for="aPw">كلمة المرور</label><input id="aPw" type="password" required minlength="8" autocomplete="current-password">
+<div class="er" id="aE"></div>
+<div class="acts" style="margin-top:14px"><button class="btn" id="aB">دخول</button><button type="button" class="btn o" id="aX">إغلاق</button></div>
+</form>
+<div id="aGb" style="display:flex;justify-content:center;margin-top:14px"></div>
+<div class="nt" id="aG"></div>
+<button type="button" class="lnk" id="aS"></button>
+</div></div>
+<script>
+const $=id=>document.getElementById(id);
+function openUrl(u){try{const B=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.Browser;if(B)return B.open({url:u})}catch(e){}window.open(u,'_blank','noopener')}
+const PID='ID اللاعب',LNK='رابط الحساب / اليوزر';
+const g=(n,i,pk,inp)=>({c:'games',n,i,pk,inp});
+const s=(n,i,pk)=>({c:'social',n,i,pk,inp:LNK});
+const b=(n,i,pk)=>({c:'subs',n,i,pk,inp:'البريد الإلكتروني للحساب'});
+const X=[
+g('شحن شدات ببجي موبايل (PUBG UC)','🎯',['60 UC','325 UC','660 UC','1800 UC','3850 UC','8100 UC','باقة مخصصة'],PID),
+g('شحن كوينز إي فوتبول (eFootball)','⚽',['130 Coins','300 Coins','550 Coins','1040 Coins','2130 Coins','3250 Coins'],'ID اللاعب / حساب Konami'),
+g('شحن جواهر فري فاير (Free Fire)','🔥',['100 جوهرة','310 جوهرة','520 جوهرة','1060 جوهرة','2180 جوهرة','عضوية أسبوعية','عضوية شهرية'],PID),
+g('شحن كلاش أوف كلانس (Clash of Clans)','🏰',['80 جوهرة','500 جوهرة','1200 جوهرة','2500 جوهرة','تذكرة ذهبية (Gold Pass)'],'#Tag / Supercell ID'),
+g('شحن توكنز جواكر (Jawaker)','🃏',['5,000 توكنز','15,000 توكنز','30,000 توكنز','60,000 توكنز','120,000 توكنز'],PID),
+s('خدمات إنستغرام (Instagram)','📸',['1,000 متابع','5,000 متابع','10,000 متابع','1,000 لايك','10,000 مشاهدة ريلز']),
+s('خدمات تيك توك (TikTok)','🎵',['1,000 متابع','5,000 متابع','10,000 مشاهدة','50,000 مشاهدة','1,000 لايك']),
+s('خدمات يوتيوب (YouTube)','▶️',['500 مشترك','1,000 مشترك','1,000 مشاهدة','5,000 مشاهدة','500 لايك']),
+s('خدمات تيليغرام (Telegram)','✈️',['1,000 عضو','5,000 عضو','10,000 عضو','1,000 مشاهدة منشور']),
+s('خدمات فيسبوك (Facebook)','👍',['1,000 متابع صفحة','5,000 متابع','1,000 لايك منشور','5,000 مشاهدة فيديو']),
+b('ChatGPT Plus','🧠',['شهر']),b('Claude Pro','✨',['شهر']),b('Gemini Pro','💎',['شهر']),
+b('Canva Pro','🎨',['الباقة المتاحة']),b('CapCut Pro','🎬',['الباقة المتاحة']),b('Adobe Creative Cloud','🅰️',['الباقة المتاحة']),b('باقة صناع المحتوى (Creator Bundle)','📦',['الباقة المتاحة']),
+b('IPTV','📺',['3 أشهر','سنة']),b('Microsoft 365','🪟',['الباقة المتاحة']),b('Zoom Pro','🎥',['الباقة المتاحة']),b('NordVPN','🔒',['الباقة المتاحة']),
+{c:'cards',n:'بطاقات Google Play',i:'🎮',pk:['بطاقة 5$','بطاقة 10$','بطاقة 15$','بطاقة 25$','بطاقة 50$'],inp:'البلد / البريد'},
+{c:'cards',n:'بطاقات iTunes / App Store',i:'🍎',pk:['بطاقة 5$','بطاقة 10$','بطاقة 15$','بطاقة 25$','بطاقة 50$'],inp:'البلد / البريد'},
+{c:'cards',n:'تحويل رصيد ووحدات محلية',i:'📱',pk:['رصيد وحدات','باقة إنترنت','تفعيل خط'],inp:'رقم الهاتف'}
+];
+X.forEach(x=>x.sel=0);
+const T={all:'الكل',games:'🎮 شحن الألعاب',social:'📈 خدمات السوشيال ميديا',subs:'✨ الاشتراكات الرقمية',cards:'💳 البطاقات والرصيد'};
+let cat='all',cur=null;
+function tabs(){$('tabs').innerHTML=Object.entries(T).map(([k,v])=>`<button class="tab ${k===cat?'on':''}" data-k="${k}">${v}</button>`).join('')}
+function grid(){
+ const q=$('q').value.trim().toLowerCase();
+ const l=X.map((x,i)=>({x,i})).filter(o=>(cat==='all'||o.x.c===cat)&&o.x.n.toLowerCase().includes(q));
+ $('grid').innerHTML=l.length?l.map(({x,i})=>`<div class="card"><div class="ic">${x.i}</div><h3>${x.n}</h3><span class="pr">💬 السعر حسب التحديث</span>${x.c==='social'?'<span class="sec">بدون باسوورد 🛡️</span>':x.c==='games'?'<span class="sec">ID فقط — بدون باسوورد 🛡️</span>':''}<div class="chips">${x.pk.map((p,j)=>`<button class="chip ${j===x.sel?'on':''}" data-i="${i}" data-j="${j}">${p}</button>`).join('')}</div><button class="btn" data-o="${i}">اطلب الآن ⚡</button></div>`).join(''):'<div class="empty">لا توجد نتائج مطابقة</div>'}
+$('tabs').onclick=e=>{const k=e.target.dataset.k;if(k){cat=k;tabs();grid()}};
+$('q').oninput=grid;
+$('grid').onclick=e=>{const d=e.target.dataset;
+ if(d.j!==undefined){X[d.i].sel=+d.j;grid()}
+ else if(d.o!==undefined){cur=X[d.o];$('mS').value=cur.n;$('mP').value=cur.pk[cur.sel];$('mL').textContent=cur.inp;$('mI').value='';$('md').classList.add('on')}};
+$('cl').onclick=()=>$('md').classList.remove('on');
+$('md').onclick=e=>{if(e.target===$('md'))$('md').classList.remove('on')};
+$('go').onclick=()=>{
+ const m=`مرحباً متجر شام 👋\nأرغب بطلب:\n🛒 الخدمة: ${cur.n}\n📦 الباقة: ${$('mP').value}\n🆔 ${cur.inp}: ${$('mI').value.trim()||'—'}\n💳 حالة الدفع: ${$('mY').value}\n\nسأرفق صورة إيصال شام كاش في هذه المحادثة. أعلم أن أوقات التنفيذ يومياً من 3:00 عصراً حتى 10:30 مساءً.`;
+ saveOrder({service:cur.n,package:$('mP').value,target:$('mI').value.trim(),pay:$('mY').value});
+ openUrl('https://wa.me/963986883989?text='+encodeURIComponent(m))};
+tabs();grid();
+
+/* ===== الحسابات (محلية داخل المتصفح) ===== */
+const GOOGLE_CLIENT_ID=''; // ضع هنا Client ID من Google Cloud Console لتفعيل الدخول عبر Google
+const LS=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
+const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
+async function sha(t){if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}return btoa(unescape(encodeURIComponent(t)))}
+function me(){const e=LS('sham_session'),u=LS('sham_users')||{};return e&&u[e]?{email:e,name:u[e].name}:null}
+function acct(){const a=$('acct');a.textContent='';const u=me();
+ if(!u){const b=document.createElement('button');b.className='btn o sm';b.textContent='دخول / تسجيل';b.onclick=()=>openAuth('login');a.append(b);return}
+ const n=document.createElement('span');n.className='badge';n.textContent=u.name;
+ const o=document.createElement('button');o.className='btn o sm';o.textContent='خروج';o.onclick=()=>{try{localStorage.removeItem('sham_session')}catch(e){}acct()};
+ a.append(n,o)}
+let am='login';
+function openAuth(m){am=m;const l=m==='login';$('aT').textContent=l?'تسجيل الدخول':'إنشاء حساب جديد';$('aN').style.display=l?'none':'block';
+ $('aB').textContent=l?'دخول':'إنشاء الحساب';$('aS').textContent=l?'ليس لديك حساب؟ أنشئ حساباً':'لديك حساب؟ سجّل الدخول';
+ $('aPw').autocomplete=l?'current-password':'new-password';$('aE').style.display='none';$('am').classList.add('on')}
+$('aS').onclick=()=>openAuth(am==='login'?'register':'login');
+$('aX').onclick=()=>$('am').classList.remove('on');
+$('am').onclick=e=>{if(e.target===$('am'))$('am').classList.remove('on')};
+function aerr(m){$('aE').textContent=m;$('aE').style.display='block'}
+function done(e){SV('sham_session',e);$('am').classList.remove('on');$('aF').reset();acct()}
+$('aF').onsubmit=async ev=>{ev.preventDefault();
+ const email=$('aMail').value.trim().toLowerCase(),pw=$('aPw').value,name=$('aName').value.trim();
+ const us=LS('sham_users')||{},h=await sha(email+':'+pw);
+ if(am==='register'){
+  if(!name)return aerr('الاسم مطلوب');if(pw.length<8)return aerr('كلمة المرور 8 أحرف على الأقل');
+  if(us[email])return aerr('هذا البريد مسجّل مسبقاً');
+  us[email]={name,h};if(!SV('sham_users',us))return aerr('تعذّر الحفظ في المتصفح');done(email)
+ }else{if(!us[email]||us[email].h!==h)return aerr('البريد أو كلمة المرور غير صحيحة');done(email)}};
+function saveOrder(o){const e=LS('sham_session');if(!e)return;const l=LS('sham_orders')||[];l.push(Object.assign({email:e,t:Date.now()},o));SV('sham_orders',l)}
+function onG(r){try{const p=JSON.parse(decodeURIComponent(escape(atob(r.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')))));
+ if(!p.email||p.email_verified===false)return aerr('بريد Google غير موثّق');
+ const us=LS('sham_users')||{},e=p.email.toLowerCase();if(!us[e])us[e]={name:p.name||e.split('@')[0],g:1};SV('sham_users',us);done(e)}catch(x){aerr('فشل الدخول عبر Google')}}
+function initG(){
+ if(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()){$('aG').textContent='دخول Google غير متاح داخل التطبيق حالياً — استخدم البريد وكلمة المرور.';return}
+ if(!GOOGLE_CLIENT_ID||location.protocol==='file:'){$('aG').textContent='دخول Google يتطلب وضع Client ID داخل الملف وفتح الموقع عبر رابط https (لا يعمل من ملف محلي).';return}
+ const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;
+ s.onload=()=>{google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:onG});google.accounts.id.renderButton($('aGb'),{theme:'filled_black',size:'large',locale:'ar'})};
+ document.head.appendChild(s)}
+acct();initG();
+</script>
+</body>
+</html>

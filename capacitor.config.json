@@ -1,0 +1,7 @@
+{
+  "appId": "com.shamstore.app",
+  "appName": "متجر شام",
+  "webDir": "www",
+  "backgroundColor": "#08080e",
+  "server": { "androidScheme": "https" }
+}
